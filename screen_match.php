@@ -6,14 +6,17 @@ echo "Bem_vindo ao ScreenMatch!!
 $nomeFilme = "Top Gun - Maverick";
 
 $anoDeLancamento = $argv[1] ?? 2022;
-$somaNotas = 0;
-$quantidadeNotas = $argc - 1; 
-
 $incluidoNoPlano = true;
-
+$notas = [];
+$quantidadeNotas = $argc - 1; 
 for ($i = 1 ; $i < $argc;$i++ ){
-    $somaNotas += $argv[$i];
+    $notas[] = (float) $argv[$i];
 }
+$somaNotas = 0;
+foreach($notas as $nota){
+    $somaNotas += $nota;
+}
+
 $notaFilme = $somaNotas / $quantidadeNotas;
 
 
@@ -36,4 +39,12 @@ $genero = match($nomeFilme){
     default => "Gênero desconhecido",
 };
 
-echo "Gênero do filme é: $genero";
+echo "Gênero do filme é: $genero\n";
+$filmes = [
+	"nome" => "Thor",
+	"ano" => 2021,
+	"nota" => 9.1,
+	"genero" => "superheroi"	
+];
+
+echo($filmes["nome"]);
