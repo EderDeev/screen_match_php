@@ -43,9 +43,13 @@ $filmes = [
 	"nome" => "Thor",
 	"ano" => 2021,
 	"nota" => 9.1,
-	"genero" => "superheroi"	
+	"genero" => "superherói"	
 ];
 
 echo($filmes["nome"]);
 
-echo max($notas);
+$FilmeComString = json_encode($filmes);
+
+file_put_contents(__DIR__ . '/filme.json' , $FilmeComString);
+
+var_dump(json_decode('{"nome":"Thor: Ragnarok", "ano":2021, "nota":7.8, "genero":"super-her\u00f3i"}',true));
