@@ -14,3 +14,12 @@ function exibirMensagemLancamento(int $ano) : void {
 function incluidoNoPlano(bool $planoPrime, int $anoDeLancamento) : bool {
     return $planoPrime || $anoDeLancamento > 2020;
 }
+
+function criarFilme(string $nome, int $anoDeLancamento, float $nota, string $genero){
+    return [
+        "nome" => $nome,
+	    "anoDeLancamento" => $anoDeLancamento,
+	    "nota" => $nota,
+	    "genero" => $genero
+    ];
+}
