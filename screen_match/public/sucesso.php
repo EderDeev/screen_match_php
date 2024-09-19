@@ -1,0 +1,1 @@
+<h1>Teste <?php echo $_GET['filme'];  ?> </h1>
