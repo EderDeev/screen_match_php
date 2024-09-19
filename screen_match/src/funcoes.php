@@ -1,5 +1,6 @@
 <?php
 
+
 function exibirMensagemLancamento(int $ano) : void {
     if($ano > 2022){   
         echo "Esse filme é um lançamento\n";
@@ -15,11 +16,14 @@ function incluidoNoPlano(bool $planoPrime, int $anoDeLancamento) : bool {
     return $planoPrime || $anoDeLancamento > 2020;
 }
 
-function criarFilme(string $nome, int $anoDeLancamento, float $nota, string $genero){
-    return [
-        "nome" => $nome,
-	    "anoDeLancamento" => $anoDeLancamento,
-	    "nota" => $nota,
-	    "genero" => $genero
-    ];
+function criarFilme(string $nome, int $anoLancamento, float $nota, string $genero) : Filme{
+
+    $filme = new Filme();
+
+    $filme->nome = $nome;
+    $filme->anoLancamento = $anoLancamento;
+    $filme->nota = $nota;
+    $filme->genero = $genero;
+
+    return $filme;
 }

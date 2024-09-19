@@ -1,5 +1,5 @@
 <?php
-
+require __DIR__ . "/src/Modelo/Filme.php";
 include __DIR__ . '/src/funcoes.php';
 
 echo "Bem_vindo ao ScreenMatch!!
@@ -39,11 +39,12 @@ $genero = match($nomeFilme){
 };
 
 echo "Gênero do filme é: $genero\n";
-$filmes = criarFilme(nome:"Thor", anoDeLancamento:2020, nota:8, genero:"Ação");
 
-echo($filmes["anoDeLancamento"]);
+$filme = criarFilme(nome:"Thor", anoLancamento:2020, nota:8, genero:"Ação");
 
-$FilmeComString = json_encode($filmes);
+echo($filme->nome);
+
+$FilmeComString = json_encode($filme);
 
 file_put_contents(__DIR__ . '/filme.json' , $FilmeComString);
 
