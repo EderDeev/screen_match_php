@@ -4,6 +4,7 @@ include __DIR__ . '\src\Modelo\Titulo.php';
 include __DIR__ . '\src\Modelo\Genero.php';
 include __DIR__ . '\src\Modelo\Filme.php';
 include __DIR__ . '\src\Modelo\Serie.php';
+include __DIR__ . '\src\Calculos\CalculadoraDeMaratona.php';
 
 echo "Bem vindo(a) ao ScreenMatch\n";
 
@@ -35,4 +36,11 @@ $serie->avalia(6);
 $serie->avalia(8);
 
 echo $serie->media() . "\n";
+
+$calculadoraDeMaratona = new CalculadoraDeMaratona();
+$calculadoraDeMaratona->inclui($filme);
+$calculadoraDeMaratona->inclui($serie);
+$maratonaEmMinutos = $calculadoraDeMaratona->getDuracaoMaratona();
+
+echo "Vôce precisa de $maratonaEmMinutos minutos para mataronar essas obras";
 
