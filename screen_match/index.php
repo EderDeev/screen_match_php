@@ -1,10 +1,13 @@
 <?php
 
+include __DIR__ . '\src\Modelo\Avaliavel.php';
 include __DIR__ . '\src\Modelo\Titulo.php';
 include __DIR__ . '\src\Modelo\Genero.php';
 include __DIR__ . '\src\Modelo\Filme.php';
+include __DIR__ . '\src\Modelo\Episodio.php';
 include __DIR__ . '\src\Modelo\Serie.php';
 include __DIR__ . '\src\Calculos\CalculadoraDeMaratona.php';
+include __DIR__ . '\src\Calculos\ConversorParaEstrelas.php';
 
 echo "Bem vindo(a) ao ScreenMatch\n";
 
@@ -32,15 +35,25 @@ $serie = new Serie("Lost",2007,Genero::Drama,30,5,10);
 echo $serie->nome . "\n";
 
 $serie->avalia(10);
-$serie->avalia(6);
+$serie->avalia(10);
 $serie->avalia(8);
 
 echo $serie->media() . "\n";
+
+
+$episodio = new Episodio($serie,"Primeiro episódio",1);
 
 $calculadoraDeMaratona = new CalculadoraDeMaratona();
 $calculadoraDeMaratona->inclui($filme);
 $calculadoraDeMaratona->inclui($serie);
 $maratonaEmMinutos = $calculadoraDeMaratona->getDuracaoMaratona();
 
-echo "Vôce precisa de $maratonaEmMinutos minutos para mataronar essas obras";
+echo "Vôce precisa de $maratonaEmMinutos minutos para mataronar essas obras \n";
+
+$conversor = new ConversorParaEstrelas();
+
+$estralasSerie =  $conversor->converte($serie);
+$estrelasFilme = $conversor->converte($filme);
+echo $estralasSerie . "\n";
+echo $estrelasFilme;
 

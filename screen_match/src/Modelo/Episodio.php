@@ -1,17 +1,16 @@
 <?php
 
-abstract class Titulo implements Avaliavel
-{
+class Episodio implements Avaliavel{
     private array $notas;
-
+    
     public function __construct(
+        public readonly Serie $serie,
         public readonly string $nome,
-        public readonly int $anoLancamento,
-        public readonly Genero $genero,
-        ){
+        public readonly int $numero
+    )
+    {
         $this->notas = [];
     }
-
 
     public function avalia(float $nota): void{
         $this->notas[] = $nota;
@@ -23,6 +22,4 @@ abstract class Titulo implements Avaliavel
 
         return $somaNotas / $quantidadeNotas;
     }
-
-    abstract public function duracaoEmMinutos():int;
 }
