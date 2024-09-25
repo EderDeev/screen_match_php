@@ -1,5 +1,6 @@
 <?php
 
+namespace screen_match\Modelo;
 
 interface Avaliavel{
 

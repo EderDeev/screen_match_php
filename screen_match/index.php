@@ -1,13 +1,14 @@
 <?php
 
-include __DIR__ . '\src\Modelo\Avaliavel.php';
-include __DIR__ . '\src\Modelo\Titulo.php';
-include __DIR__ . '\src\Modelo\Genero.php';
-include __DIR__ . '\src\Modelo\Filme.php';
-include __DIR__ . '\src\Modelo\Episodio.php';
-include __DIR__ . '\src\Modelo\Serie.php';
-include __DIR__ . '\src\Calculos\CalculadoraDeMaratona.php';
-include __DIR__ . '\src\Calculos\ConversorParaEstrelas.php';
+require 'autoload.php';
+
+use screen_match\Modelo\{
+    Filme,Serie,Genero,Episodio
+};
+
+use screen_match\Calculos\{
+    CalculadoraDeMaratona,ConversorParaEstrelas
+};
 
 echo "Bem vindo(a) ao ScreenMatch\n";
 
