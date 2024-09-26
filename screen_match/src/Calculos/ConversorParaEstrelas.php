@@ -2,13 +2,19 @@
 
 namespace screen_match\Calculos;
 
+use DivisionByZeroError;
 use screen_match\Modelo\Avaliavel;
 
 class ConversorParaEstrelas{
 
     public function converte(Avaliavel $avaliavel):float{
-        $nota = $avaliavel->media();
+        
+        try {
+            $nota = $avaliavel->media();
 
-        return round($nota / 2) ;
-    }
+            return round($nota) / 2;
+            } catch(DivisionByZeroError) {    
+                return 0;
+            }
+}
 }
