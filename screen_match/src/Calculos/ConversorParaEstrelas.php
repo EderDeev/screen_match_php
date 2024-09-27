@@ -14,10 +14,8 @@ class ConversorParaEstrelas{
             $nota = $avaliavel->media();
 
             return round($nota) / 2;
-            } catch(Throwable ) {    
+            }catch(DivisionByZeroError){
                 return 0;
-            }catch(DivisionByZeroError $erro){
-                return $erro->getMessage();
             }
 }
 }
